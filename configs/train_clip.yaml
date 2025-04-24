@@ -1,0 +1,46 @@
+data:
+  target: dataset.data_module.BIRDataModule
+  params:
+    # Path to training set configuration file.
+    train_config: configs/dataset/general_deg_realesrgan_train_ImageNetC.yaml
+    # Path to validation set configuration file.
+    val_config: configs/dataset/general_deg_realesrgan_val_ImageNet.yaml
+
+model:
+  # You can set learning rate in the following configuration file.
+  config: configs/model/clip_distill.yaml
+  resume: weights/ori.ckpt
+
+lightning:
+  seed: 0
+  
+  trainer:
+    accelerator: ddp
+    precision: 32
+    # Indices of GPUs used for training.
+    gpus: [0]
+    # Path to save logs and checkpoints.
+    default_root_dir: logs/RCLIP
+    # Max number of training steps (batches).
+    max_steps: 100001
+    # Validation frequency in terms of training steps.
+    val_check_interval: 300000
+    limit_val_batches: 0.0
+    log_every_n_steps: 1000
+    # Accumulate gradients from multiple batches so as to increase batch size.
+    accumulate_grad_batches: 1
+  
+  callbacks:
+    - target: model.callbacks.ImageLogger
+      params:
+        # Log frequency of image logger.
+        log_every_n_steps: 10000
+        max_images_each_step: 8
+        log_images_kwargs: ~
+
+    - target: model.callbacks.ModelCheckpoint
+      params:
+        # Frequency of saving checkpoints.
+        every_n_train_steps: 10000
+        save_top_k: -1
+        filename: "{step}"

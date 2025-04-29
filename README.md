@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```
 
 ## Inference
-Please download the pretrained model from [Google Drive](???) and put it into `logs/ConsisSR.ckpt`.
+Please download the pretrained model from [Google Drive](https://drive.google.com/drive/folders/1ZaVwuh_fnjlbeILtNovNDVDHyZSQW_An?usp=drive_link) and put it into `logs/ConsisSR.ckpt`.
 
 You can download `RealSR` and `DRealSR` from [StableSR](https://huggingface.co/datasets/Iceclear/StableSR-TestSets).
 
@@ -75,7 +75,7 @@ python init_weight.py
 
 ### Train our HPA (stage 1)
 
-Fill in [configuration file](???) with the afore-mentioned initialized ckpt.
+Fill in [configuration file](https://github.com/Gujojo/ConsisSR/blob/main/configs/train_clip.yaml#L12) with the afore-mentioned initialized ckpt.
 
 ```bash
 python train.py --config configs/train_clip.yaml
@@ -83,7 +83,7 @@ python train.py --config configs/train_clip.yaml
 
 ### Train our diffusion model (stage 2)
 
-Fill in [configuration file](???) with the well-trained ckpt from stage 1.
+Fill in [configuration file](https://github.com/Gujojo/ConsisSR/blob/main/configs/train_clip.yaml#L13) with the well-trained ckpt from stage 1.
 
 ```bash
 python train.py --config configs/train_cldm.yaml
@@ -107,7 +107,7 @@ Please cite us if our work helps your research.
 ```
 
 ## License
-This project is released under the [Apache 2.0 license](???).
+This project is released under the Apache 2.0 license.
 
 ## Acknowledgement
 This project is based on [BasicSR](https://github.com/XPixelGroup/BasicSR) and [DiffBIR](https://github.com/XPixelGroup/DiffBIR). Thanks for their awesome work.

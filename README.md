@@ -30,7 +30,8 @@ pip install -r requirements.txt
 ```
 
 ## Inference
-Please download the pretrained model from [Google Drive](https://drive.google.com/drive/folders/1ZaVwuh_fnjlbeILtNovNDVDHyZSQW_An?usp=drive_link) and put it into `logs/ConsisSR.ckpt`.
+Please download the pretrained model from [Google Drive](https://drive.google.com/drive/folders/1EU8qo740u8pZ1HJzpN8TlNAWLqyCrjeK?usp=sharing
+) and put it into `logs/ConsisSR.ckpt`.
 
 You can download `RealSR` and `DRealSR` from [StableSR](https://huggingface.co/datasets/Iceclear/StableSR-TestSets).
 

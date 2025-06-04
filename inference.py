@@ -130,7 +130,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--input", type=str, required=True)
     parser.add_argument("--vq", type=str, default=None)
     parser.add_argument("--steps", type=int, default=50)
-    parser.add_argument("--sr_scale", type=float, default=1)
+    parser.add_argument("--sr_scale", type=float, default=4)
     parser.add_argument("--repeat_times", type=int, default=1)
     
     # patch-based sampling
